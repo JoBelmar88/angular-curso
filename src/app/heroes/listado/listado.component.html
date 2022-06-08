@@ -1,0 +1,17 @@
+<p>Listado de Heroes</p>
+
+<!-- si esta condición no se cumple, muestra el template local -->
+<div *ngIf="heroeBorrado; else noBorrado"><!-- Referencia local: solo funcionan en el lado del template -->
+  <h3>Heroe <small>{{heroeBorrado}}</small>, borrado con éxito</h3>
+</div>
+
+<!-- ng-template mostrará contenido basado en la condición anterior -->
+<ng-template #noBorrado>
+  <h3>No ha borrado nada</h3>
+</ng-template>
+
+<button (click)='borrarHeroe()'>Borrar Heroe</button>
+
+<ul>
+  <li *ngFor="let heroe of heroes; let i = index">{{i + 1}} {{heroe}}</li>
+</ul>
